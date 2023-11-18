@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.reponsitories;
+package vn.edu.iuh.fit.repositories;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -36,7 +36,7 @@ public class JobRepository extends DataReponsitory<Job, Integer> {
 
     @Override
     public Job findOne(Integer id) {
-        String query = "select * from job where job_id = ?";
+        String query = "select * from job where jobID = ?";
         return jdbcTemplate.queryForObject(query, rowMapper, id);
 
     }
@@ -57,7 +57,7 @@ public class JobRepository extends DataReponsitory<Job, Integer> {
 
     @Override
     public boolean delete(Integer id) {
-        String delete ="delete from job where job_id = ?";
+        String delete ="delete from job where jobID = ?";
         int n = jdbcTemplate.update(delete,id);
         if (n!=0) return true;
         return false;
@@ -65,7 +65,7 @@ public class JobRepository extends DataReponsitory<Job, Integer> {
 
     @Override
     public boolean update(Job job) {
-        String update = "update job set title = ? , description = ?, location = ?, salary = ? where job_id = ?";
+        String update = "update job set title = ? , description = ?, location = ?, salary = ? where jobID = ?";
         int n = jdbcTemplate.update(update, job.getTitle(), job.getDescription(), job.getLocation(), job.getSalary(),job.getJobId());
         if (n != 0) return true;
         return false;

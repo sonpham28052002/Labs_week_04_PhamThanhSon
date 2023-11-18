@@ -3,13 +3,11 @@ package vn.edu.iuh.fit.labs_week_04_phamthanhson;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.relational.core.sql.In;
 import vn.edu.iuh.fit.entities.CandidateSkill;
-import vn.edu.iuh.fit.reponsitories.CandidateSkillReponsitory;
+import vn.edu.iuh.fit.repositories.CandidateSkillReponsitory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @SpringBootTest
 public class CandidateSkillApplicationTests {
@@ -37,7 +35,7 @@ public class CandidateSkillApplicationTests {
     @Test
     void insert() {
         System.out.println("\n----------------------------------------------------------------\n");
-        CandidateSkill skill = new CandidateSkill(2,2,10);
+        CandidateSkill skill = new CandidateSkill(3,3,11);
         List<Integer> ids =new ArrayList<>();
         ids.add(skill.getCandidateID());
         ids.add(skill.getSkillID());

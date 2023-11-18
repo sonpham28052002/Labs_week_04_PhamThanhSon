@@ -1,6 +1,9 @@
 package vn.edu.iuh.fit.entities;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
 public class Candidate {
+    @Id
     private int candidateID;
     private String fullName;
     private String email;

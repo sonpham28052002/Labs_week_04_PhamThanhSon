@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import vn.edu.iuh.fit.entities.Candidate;
-import vn.edu.iuh.fit.reponsitories.CandidateReponsitory;
+import vn.edu.iuh.fit.repositories.CandidateReponsitory;
 
 @SpringBootTest
 class CandidateApplicationTests {

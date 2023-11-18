@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.reponsitories;
+package vn.edu.iuh.fit.repositories;
 
 import org.springframework.stereotype.Component;
 

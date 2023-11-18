@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import vn.edu.iuh.fit.entities.Skill;
-import vn.edu.iuh.fit.reponsitories.SkillReponsitory;
+import vn.edu.iuh.fit.repositories.SkillReponsitory;
 
 @SpringBootTest
 public class SkillApplicationTests {
@@ -20,7 +20,7 @@ public class SkillApplicationTests {
     @Test
     void findOne(){
         System.out.println("\n----------------------------------------------------------------\n");
-        System.out.println(skillReponsitory.findOne(1));
+        System.out.println(skillReponsitory.findOne(2));
     }
 
     @Test

@@ -1,9 +1,9 @@
-package vn.edu.iuh.fit.reponsitories;
+package vn.edu.iuh.fit.repositories;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import vn.edu.iuh.fit.entities.Candidate;
 
 import javax.sql.DataSource;
@@ -36,7 +36,7 @@ public class CandidateReponsitory extends DataReponsitory<Candidate,Integer>{
 
     @Override
     public Candidate findOne(Integer id) {
-        String query  = "select * from candidate where candidate_id = ?";
+        String query  = "select * from candidate where candidateID = ?";
         return jdbcTemplate.queryForObject(query, rowMapper, id);
 
     }
@@ -53,23 +53,20 @@ public class CandidateReponsitory extends DataReponsitory<Candidate,Integer>{
         System.out.println(condidate);
         String insert = "insert into candidate(full_name,email,phone_number,address) values(?,?,?,?)";
         int n = jdbcTemplate.update(insert, condidate.getFullName(),condidate.getEmail(),condidate.getPhone(),condidate.getAddress());
-        if (n != 0) return true;
-        return false;
+        return n != 0;
     }
 
     @Override
     public boolean delete(Integer id) {
-        String delete = "delete FROM candidate where candidate_id = ?";
+        String delete = "delete FROM candidate where candidateID = ?";
         int n = jdbcTemplate.update(delete, id);
-        if (n != 0) return true;
-        return false;
+        return n != 0;
     }
 
     @Override
     public boolean update(Candidate condidate) {
-        String update = "update candidate set full_name = ? , email = ? , phone_number= ?,address = ? where candidate_id = ?";
+        String update = "update candidate set full_name = ? , email = ? , phone_number= ?,address = ? where candidateID = ?";
         int n = jdbcTemplate.update(update, condidate.getFullName(),condidate.getEmail(),condidate.getPhone(),condidate.getAddress(),condidate.getCandidateID());
-        if (n != 0) return true;
-        return false;
+        return n != 0;
     }
 }

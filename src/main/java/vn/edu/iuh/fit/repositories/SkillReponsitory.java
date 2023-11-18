@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.reponsitories;
+package vn.edu.iuh.fit.repositories;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -12,9 +12,9 @@ import java.util.List;
 
 @Component
 public class SkillReponsitory extends DataReponsitory<Skill,Integer>{
-    private JdbcTemplate jdbcTemplate;
-    private DataSource dataSource;
-    private RowMapper<Skill> rowMapper;
+    private final JdbcTemplate jdbcTemplate;
+    private final DataSource dataSource;
+    private final RowMapper<Skill> rowMapper;
 
     public SkillReponsitory(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -33,7 +33,7 @@ public class SkillReponsitory extends DataReponsitory<Skill,Integer>{
 
     @Override
     public Skill findOne(Integer id) {
-        String query = "select * from skill where skill_id = ?";
+        String query = "select * from skill where skillID = ?";
         return jdbcTemplate.queryForObject(query,rowMapper,id);
     }
 
@@ -53,7 +53,7 @@ public class SkillReponsitory extends DataReponsitory<Skill,Integer>{
 
     @Override
     public boolean delete(Integer id) {
-        String delete = "delete from skill where skill_id = ?";
+        String delete = "delete from skill where skillID = ?";
         int n = jdbcTemplate.update(delete,id);
         if (n != 0) return true;
         return false;

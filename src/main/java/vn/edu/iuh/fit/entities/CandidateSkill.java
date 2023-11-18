@@ -1,5 +1,6 @@
 package vn.edu.iuh.fit.entities;
 
+
 public class CandidateSkill {
     private int candidateID;
     private int skillID;

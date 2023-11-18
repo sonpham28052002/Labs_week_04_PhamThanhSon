@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import vn.edu.iuh.fit.entities.Job;
-import vn.edu.iuh.fit.reponsitories.JobRepository;
+import vn.edu.iuh.fit.repositories.JobRepository;
 
 @SpringBootTest
 public class JobApplicationTests {
